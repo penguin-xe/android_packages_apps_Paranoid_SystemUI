@@ -275,10 +275,7 @@ public class BluetoothDialog extends SystemUIDialog implements Window.Callback {
         if (devices == null) return null;
         if (devices.size() <= 1) return devices;
         Collection<CachedBluetoothDevice> sorted = new ArrayList<>();
-        devices.stream().sorted(new BtDeviceComparator()).forEach(device -> {
-            if (device.getDevice().getBondState() != BluetoothDevice.BOND_NONE)
-                sorted.add(device);
-        });
+        devices.stream().sorted(new BtDeviceComparator()).forEach(sorted::add);
         return sorted;
     }
 
