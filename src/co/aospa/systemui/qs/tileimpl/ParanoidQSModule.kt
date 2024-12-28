@@ -24,6 +24,7 @@ import co.aospa.systemui.qs.tiles.DcDimmingTile
 import co.aospa.systemui.qs.tiles.HeadsUpTile
 import co.aospa.systemui.qs.tiles.PowerShareTile
 import co.aospa.systemui.qs.tiles.SoundTile
+import co.aospa.systemui.qs.tiles.SyncTile
 import co.aospa.systemui.qs.tiles.UsbTetherTile
 import co.aospa.systemui.qs.tiles.WifiTile
 import co.aospa.systemui.qs.tiles.VolumeTile
@@ -101,4 +102,11 @@ interface ParanoidQSModule {
     @IntoMap
     @StringKey(VolumeTile.TILE_SPEC)
     fun bindVolumeTile(volumeTile: VolumeTile): QSTileImpl<*>
+
+    /** Inject SyncTile into tileMap in QSModule */
+    @Binds
+    @IntoMap   
+    @StringKey(SyncTile.TILE_SPEC)
+    fun bindSyncTile(syncTile: SyncTile): QSTileImpl<*>
+
 }
